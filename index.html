@@ -20,23 +20,34 @@
         <label for="ast">Alaska Standard Time</label><br>
         <input type="radio" name="timezone" value="hst" id="hst">
         <label for="hst">Hawaiin-Aleutian Standard Time</label><br>
+
+        <!--Submit button!-->
         <button type="button" value="Submit" onclick="myfunc()">Submit</button>
 
         <!--To be used later to print the selected timezone-->
-        <div id="ex"></div>
+        <div id="tz"></div>
     </form>
-    <script>
-        
+    <!--Lets the computer know to read the script code in Javascript, not HTML-->
+    <script type="text/javascript">
+
+        //design a function to print the user's selection from the timezone form
         function myfunc(){
+            //this first variable is an array to hold all of the radio buttons
             var radioButtons = document.getElementsByName("timezone");
+
+            /*this second variable will hold the selected 
+            radio button's value -since the value property
+             on the input field for the radio button
+            is what made each radio button unique*/
             var selected = radioButtons[0];
             for(var i = 0; i < radioButtons.length; i++){
                 if(radioButtons[i].checked == true){
                     selected = radioButtons[i];
+                    //if checked, we've now saved the time zone of user!
                     break;
                 }
             }
-            var elem = document.getElementById("ex");
+            var elem = document.getElementById("tz");
             elem.innerHTML = selected.value;
         }
         
