@@ -27,7 +27,7 @@
         <div id="tz"></div>
     </form>
     <script>
-        
+        //define a variable that holds a number
         function myfunc(){
             var radioButtons = document.getElementsByName("timezone");
             var selected = radioButtons[0];
@@ -39,6 +39,8 @@
             }
             var elem = document.getElementById("ex");
             elem.innerHTML = selected.value;
+            //check to see which time zone you're getting, then change offset based on that
+            clock();
         }
 
 function clock(){
@@ -49,7 +51,7 @@ function clock(){
             var sec =day.getSeconds();
             var time = hour + ":" + min + ":" + sec;
            
-            setTimeout(1000);
+            setTimeout(clock,1000);
             //calls function every 1000ms
             document.getElementById("tz").innerHTML = time;
            
